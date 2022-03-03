@@ -14,6 +14,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.encoders import jsonable_encoder
 import os
 
+for x in os.environ:
+    print(x)
+
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
     if os.system(f"dvc pull") != 0:
