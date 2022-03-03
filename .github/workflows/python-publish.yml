@@ -36,7 +36,7 @@ jobs:
           dvc remote add -f s3remote s3://myawsbucket-udacity-mlops
           dvc remote default s3remote
           dvc pull -r s3remote
-          dvc pull
+          dvc pull -R
     - name: Set up Python 3.8.12
       uses: actions/setup-python@v2
       with:
