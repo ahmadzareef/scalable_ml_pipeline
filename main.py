@@ -18,10 +18,15 @@ for x in os.environ:
     print(x)
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
+    print("Check returned True")
     os.system("dvc config core.no_scm true")
-    if os.system(f"dvc pull") != 0:
+    if os.system("dvc pull") != 0:
         exit("dvc pull failed again!")
-    os.system("rm -r .dvc .apt/usr/lib/dvc")
+    try:
+        os.system("rm -r .dvc .apt/usr/lib/dvc")
+    except:
+        print("deletion failed")
+
 
 #################### declare Variables ####################
 cat_features = [
