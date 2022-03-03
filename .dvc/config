@@ -1,2 +1,4 @@
+[core]
+    remote = s3remote
 ['remote "s3remote"']
-    url = s3://myawsbucket-udacity-mlops-2
+    url = s3://aza-mlops-nd
