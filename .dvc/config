@@ -1,3 +1,2 @@
 ['remote "s3remote"']
-    url = s3://myawsbucket-udacity-mlops
-    region = us-east-1
+    url = s3://myawsbucket-udacity-mlops-2
