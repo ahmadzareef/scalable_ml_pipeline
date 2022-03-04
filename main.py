@@ -144,7 +144,7 @@ async def predict_json(
 #     return output
 @app.get("/")
 async def main():
-    msg = "Welcome to the MLOps API"
+    msg = "Welcome to the MLOps ND API. Live GET"
     return msg
 # @app.get("/upload_file")
 # async def main():
