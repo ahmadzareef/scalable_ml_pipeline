@@ -42,7 +42,7 @@ def test_model(preds):
 
 # flake8: noqa: F811
 def test_train_model(mocker, X_train, y_train):
-    mock_model = mocker.patch("cliffhanger.ml.model.SVC")
+    mock_model = mocker.patch("model.SVC")
 
     _ = cmm.train_model(X_train, y_train)
 
@@ -52,9 +52,9 @@ def test_train_model(mocker, X_train, y_train):
 
 # flake8: noqa: F811
 def test_compute_model_metrics(mocker, y, preds):
-    mock_fbeta_score = mocker.patch("cliffhanger.ml.model.fbeta_score")
-    mock_precision_score = mocker.patch("cliffhanger.ml.model.precision_score")
-    mock_recall_score = mocker.patch("cliffhanger.ml.model.recall_score")
+    mock_fbeta_score = mocker.patch("model.fbeta_score")
+    mock_precision_score = mocker.patch("model.precision_score")
+    mock_recall_score = mocker.patch("model.recall_score")
 
     _ = cmm.compute_model_metrics(y, preds)
 

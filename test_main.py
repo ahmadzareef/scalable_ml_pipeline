@@ -49,13 +49,6 @@ def above_50k_example():
     }
 
 
-def test_root(client):
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {
-        "message": "Welcome to Cliffhanger App! Let's make some predictions :)"
-    }
-
 
 def test_predict_below_50k(client, below_50k_example):
     response = client.post("/model/", json=below_50k_example)

@@ -52,7 +52,7 @@ class Input(BaseModel):
 async def root():
     return JSONResponse(
         status_code=200,
-        content={"message": "Welcome to App! Let's make some predictions :)"},
+        content="Welcome to MLOps",
     )
 
 
