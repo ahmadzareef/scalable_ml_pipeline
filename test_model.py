@@ -2,12 +2,11 @@ from unittest.mock import ANY
 
 import pandas as pd
 import pytest
-from pytest_mock import mocker  # noqa
+from pytest_mock import mocker 
 
 import model as cmm
 
 
-# flake8: noqa:  N802
 @pytest.fixture()
 def X_train():
     return pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
@@ -40,7 +39,7 @@ def test_model(preds):
     return MockModel()
 
 
-# flake8: noqa: F811
+
 def test_train_model(mocker, X_train, y_train):
     mock_model = mocker.patch("model.SVC")
 
@@ -50,7 +49,7 @@ def test_train_model(mocker, X_train, y_train):
     mock_model().fit.assert_called_once_with(X_train, y_train)
 
 
-# flake8: noqa: F811
+
 def test_compute_model_metrics(mocker, y, preds):
     mock_fbeta_score = mocker.patch("model.fbeta_score")
     mock_precision_score = mocker.patch("model.precision_score")

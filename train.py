@@ -45,7 +45,7 @@ def main(dataset_name: str = "census_cleaned.csv", cat_cols: list = None):
     )
 
     model = train_model(X_train, y_train)
-    assets_path = "./model/"
+    assets_path = "./saved_models/"
     assets = [model, encoder, lb]
     asset_filenames = ["trained_model.pkl", "encoder.pkl", "lb.pkl"]
 
