@@ -142,23 +142,23 @@ async def predict_json(
 #     print(upload_file.filename)
 #     output={"filename": upload_file.filename}
 #     return output
-#@app.get("/")
-#async def main():
-#    msg = "Welcome to the MLOps API"
-#    return msg
-@app.get("/upload_file")
+@app.get("/")
 async def main():
-    msg = "Hello "
-    content = """
-<body>
-<h1>Welcome ...</h1>
-<h2>Model prediction</h2>
-<form action="/predict/" enctype="multipart/form-data" method="post">
-
-<input name="upload_file" type="test_file" multiple>
-<input type="submit">
-</form>
-
-</body>
-    """
-    return HTMLResponse(content=content)
+    msg = "Welcome to the MLOps API"
+    return msg
+# @app.get("/upload_file")
+# async def main():
+#     msg = "Hello "
+#     content = """
+# <body>
+# <h1>Welcome ...</h1>
+# <h2>Model prediction</h2>
+# <form action="/predict/" enctype="multipart/form-data" method="post">
+#
+# <input name="upload_file" type="test_file" multiple>
+# <input type="submit">
+# </form>
+#
+# </body>
+#     """
+#     return HTMLResponse(content=content)
