@@ -1,5 +1,0 @@
-outs:
-- md5: 4ed62ea90ee01b67a622b817b416bd68
-  size: 306
-  isexec: true
-  path: census_json.json

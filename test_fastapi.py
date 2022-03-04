@@ -19,7 +19,7 @@ def test_get():
         response= client.get("http://127.0.0.1:8000/")
 
         assert response.status_code == 200
-        assert response.text == '"Welcome to the MLOps ND API. Live GET"'
+        assert response.text == '"Welcome to the MLOps API"'
 
 def test_slice_output():
     with TestClient(app) as client:
