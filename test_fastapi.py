@@ -3,7 +3,6 @@ import os
 import sys
 from http import HTTPStatus
 from pathlib import Path
-
 import pandas as pd
 import requests
 from fastapi.testclient import TestClient
@@ -49,16 +48,49 @@ def predictions_cats():
     assert response.status_code == 200
 
 
-def test_json():
+def test_json_above(above_50k_example):
     with open('census_json.json') as json_file:
         json_data = json.load(json_file)
-
+    above =above_50k_example
     with TestClient(app) as client:
-        response = client.post('http://127.0.0.1:8000/predict/',json=json_data)
+        response = client.post('http://127.0.0.1:8000/predict/',json=above)
 
     jdata=response.text
+
+
     for i in jdata.split(','):
-        #assert i != ''
-        assert i.replace('[','').replace(']','').replace('\'','') == '"<=50K"'
+        # assert i != ''
+        # assert i == '<=50K'
+        # assert i != ''
+        assert i.replace('[','').replace(']','').replace('\'','') == '">50K"'
+        print(i)
 
     assert response.status_code == 200
+
+def test_json_below(below_50k_example):
+    with open('census_json.json') as json_file:
+        json_data = json.load(json_file)
+    below = below_50k_example
+    print(below)
+    with TestClient(app) as client:
+        response = client.post('http://127.0.0.1:8000/predict/',json=below)
+
+    jdata=response.text
+
+
+    for i in jdata.split(','):
+        # assert i != ''
+        # assert i == '<=50K'
+        # assert i != ''
+        assert i.replace('[','').replace(']','').replace('\'','') == '"<=50K"'
+        print(i)
+
+    assert response.status_code == 200
+
+if __name__ == '__main__':
+    #test_slice_output()
+    #test_json_above()
+    test_json_below()
+
+
+

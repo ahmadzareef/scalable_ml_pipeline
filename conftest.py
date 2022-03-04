@@ -59,52 +59,41 @@ def test_inference(test_train_model,prepare_data_for_inf):
         raise e
 
 
-#
-#
-# @pytest.fixture(scope="session")
-# def test_compute_model_metrics(test_inference):
-#     try:
-#         pred, y_test = test_inference
-#         metrice=compute_model_metrics(pred,y_test)
-#         return  metrice
-#     except Exception as e:
-#         print(e)
-#         raise e
+@pytest.fixture()
+def below_50k_example():
+    return [{
+        "addage": 45,
+        "workclass": "State-gov",
+        "fnlgt": 2334,
+        "education": "Bachelors",
+        "education-num": 13,
+        "marital-status": "Never-married",
+        "occupation": "Prof-specialty",
+        "relationship": "Wife",
+        "race": "Black",
+        "sex": "Female",
+        "capital-gain": 2174,
+        "capital-loss": 0,
+        "hours-per-week": 60,
+        "native-country": "Cuba",
+    }]
 
 
-
-# def pytest_addoption(parser):
-#     parser.addoption("--data", action="store")
-
-
-# @pytest.fixture(scope="session")
-# def test_train_test(data):
-#     try:
-#         train, test = train_test(data)
-#         return train, test ,data
-#     except Exception as e:
-#         print(e)
-#         raise e
-
-
-#
-#@pytest.fixture(scope="session")
-# def test_proc_train_test(test_train_test):
-#     train ,test ,data = test_train_test
-#     cat_features = [
-#         "workclass",
-#         "education",
-#         "marital-status",
-#         "occupation",
-#         "relationship",
-#         "race",
-#         "sex",
-#         "native-country",
-#     ]
-#     X_train, y_train, encoder, lb = process_data(
-#         train, categorical_features=cat_features, label="salary", training=True
-#     )
-#
-#     X_test, y_test, encoder, lb = process_data(test, categorical_features=cat_features, label="salary", training=False,
-#                                                encoder=encoder, lb=lb)
-#     return X_train, y_train, X_test, y_test, encoder, lb
+@pytest.fixture()
+def above_50k_example():
+    return [{
+        "addage": 52,
+        "workclass": "Self-emp-not-inc",
+        "fnlgt": 209642,
+        "education": "Bachelors",
+        "education-num": 9,
+        "marital-status": "Married-civ-spouse",
+        "occupation": "Exec-managerial",
+        "relationship": "Husband",
+        "race": "White",
+        "sex": "Male",
+        "capital-gain": 123387,
+        "capital-loss": 0,
+        "hours-per-week": 40,
+        "native-country": "United-States",
+    }]

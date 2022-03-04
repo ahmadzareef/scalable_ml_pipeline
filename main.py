@@ -20,6 +20,7 @@ for x in os.environ:
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     print("Check returned True")
     os.system("dvc config core.no_scm true")
+    print("dvc config done")
     if os.system("dvc pull") != 0:
         exit("dvc pull failed again!")
     try:
