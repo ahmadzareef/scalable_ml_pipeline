@@ -13,7 +13,7 @@ from data_file import process_data
 
 DATA_FOLDER = "../data"
 OUTPUT_FOLDER = "../output"
-os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+#os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 cat_features = [
     "workclass",
