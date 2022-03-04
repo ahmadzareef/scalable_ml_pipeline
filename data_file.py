@@ -1,13 +1,7 @@
-import sys
-
 import numpy as np
-import pandas as pd
-from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.preprocessing import OneHotEncoder
 
-
-def load_data(path='census_cleaned.csv'):
-    data = pd.read_csv(path)
-    return data
 
 def process_data(
     X, categorical_features=[], label=None, training=True, encoder=None, lb=None
@@ -50,6 +44,7 @@ def process_data(
         Trained LabelBinarizer if training is True, otherwise returns the binarizer
         passed in.
     """
+
     if label is not None:
         y = X[label]
         X = X.drop([label], axis=1)
@@ -58,6 +53,7 @@ def process_data(
 
     X_categorical = X[categorical_features].values
     X_continuous = X.drop(*[categorical_features], axis=1)
+
     if training is True:
         encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
         lb = LabelBinarizer()

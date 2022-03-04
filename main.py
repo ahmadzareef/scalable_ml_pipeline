@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from pydantic import Field
 
-from data import process_data
+from data_file import process_data
 from model import inference
 from train import cat_features
 from utils import load_asset

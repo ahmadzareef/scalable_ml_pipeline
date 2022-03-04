@@ -4,11 +4,12 @@ import pickle
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from data import process_data
-from evaluate import evaluate_model
+
+from  evaluate import evaluate_model
 from model import compute_model_metrics
 from model import inference
 from model import train_model
+from data_file import process_data
 
 DATA_FOLDER = "../data"
 OUTPUT_FOLDER = "../output"

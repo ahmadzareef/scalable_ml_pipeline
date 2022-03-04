@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 
-from data import process_data
+from data_file import process_data
 from model import compute_model_metrics
 from utils import load_asset
 
